@@ -59,8 +59,8 @@ def assignment(env, advertisements, moderators):
         # print("[{:6.2f}:{}] - arrive at dispatcher".format(env.now, advertisement.name))
 
         # Debugging statement to print state of moderators
-        for moderator in moderators:
-            moderator.print_stats()
+        # for moderator in moderators:
+        #    moderator.print_stats()
 
         # dispatcher logic: looting
         # advertisement will choose a moderator based on the dispatcher function
@@ -96,7 +96,7 @@ def simulate(adv, mod):
     advertisements, moderators = [], []
     env = simpy.Environment()
     for index, row in adv.iterrows():
-        advertisements.append(Advertisement(name=row["ad_id"],market=row["market"], score=row["score"], profit=row["ad_revenue"]))
+        advertisements.append(Advertisement(name=row["ad_id"],market=row["delivery_country"], score=row["score"], profit=row["ad_revenue"]))
     for index, row in mod.iterrows():
-        moderators.append(Moderator(env,name=row["mod_id"],market=row["market"],productivity=row["productivity"],utilisation=row["utilisation"],handling_time=row["handling_time"],accuracy=row["accuracy"]))
+        moderators.append(Moderator(env,name=row["moderator"],market=row["market"],productivity=row["Productivity"],utilisation=row["Utilisation %"],handling_time=row["handling time"],accuracy=row["score"]))
     return assignment(env, advertisements, moderators)
