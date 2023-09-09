@@ -31,4 +31,4 @@ def clean_ads(ads: pd.DataFrame):
 
     ads = ads[ads['avg_ad_revenue'] != 0]
 
-    return ads# [['ad_id', 'delivery_country', 'queue_market', 'baseline_st', 'punish_num', 'ad_revenue', 'avg_ad_revenue', 'revenue_ratio', 'days_since_last_penalty', 'days_since_start_time']]
+    return ads[['ad_id', 'delivery_country', 'queue_market', 'baseline_st', 'punish_num', 'ad_revenue', 'avg_ad_revenue', 'revenue_ratio', 'days_since_last_penalty', 'days_since_start_time']]
