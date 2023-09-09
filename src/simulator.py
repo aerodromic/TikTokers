@@ -96,7 +96,7 @@ def simulate(adv, mod):
     advertisements, moderators = [], []
     env = simpy.Environment()
     for index, row in adv.iterrows():
-        advertisements.append(Advertisement(market=row["market"], score=row["score"], profit=row["ad_revenue"]))
+        advertisements.append(Advertisement(name=row["ad_id"],market=row["market"], score=row["score"], profit=row["ad_revenue"]))
     for index, row in mod.iterrows():
-        moderators.append(Moderator(env,market=row["market"],productivity=row["productivity"],utilisation=row["utilisation"],handling_time=row["handling_time"],accuracy=row["accuracy"]))
+        moderators.append(Moderator(env,name=row["mod_id"],market=row["market"],productivity=row["productivity"],utilisation=row["utilisation"],handling_time=row["handling_time"],accuracy=row["accuracy"]))
     return assignment(env, advertisements, moderators)
