@@ -41,7 +41,8 @@ def assignment(env, advertisements, moderators):
     abs_mismatch_list = []
     # helper class for moderation
 
-    def dispatcher(moderators): # looting
+    def dispatcher(moderators): # dispatch advertisments based on availability
+        # intended dispatcher logic is in Moderator Queue.ipynb
         assigned_queue_size = -1
         assigned_moderator = None
         for moderator in moderators:
@@ -62,7 +63,7 @@ def assignment(env, advertisements, moderators):
         # for moderator in moderators:
         #    moderator.print_stats()
 
-        # dispatcher logic: looting
+        # dispatcher logic: Moderator Queue.ipynb
         # advertisement will choose a moderator based on the dispatcher function
         moderator, num_in_moderator = dispatcher(moderators)
         abs_mismatch_list.append(abs(moderator.accuracy - advertisement.score))
